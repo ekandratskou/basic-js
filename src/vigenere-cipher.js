@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../lib');
+const { NotImplementedError } = require("../lib");
 
 /**
  * Implement class VigenereCipheringMachine that allows us to create
@@ -20,14 +20,42 @@ const { NotImplementedError } = require('../lib');
  *
  */
 class VigenereCipheringMachine {
-  encrypt() {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  constructor(direct = true) {
+    this.direct = direct;
   }
 
-  decrypt() {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  encrypt(str, key) {
+    if (!str || !key) throw new Error("Incorrect arguments!");
+    return this.cipher(str, key, true);
+  }
+
+  decrypt(str, key) {
+    if (!str || !key) throw new Error("Incorrect arguments!");
+    return this.cipher(str, key, false);
+  }
+
+  cipher(str, key, encrypt) {
+    str = str.toUpperCase();
+    key = key.toUpperCase();
+    let res = "";
+    let j = 0;
+
+    for (let i = 0; i < str.length; i++) {
+      let c = str.charCodeAt(i);
+      if (c >= 65 && c <= 90) {
+        let k = key.charCodeAt(j % key.length) - 65; //сдвиг по ключу
+        let base = 65;
+        if (encrypt) {
+          c = ((c - base + k) % 26) + base; //шифруем
+        } else {
+          c = ((c - base - k + 26) % 26) + base; //расшифровываем
+        }
+        j++;
+      }
+      res += String.fromCharCode(c); //Преобразуем ASCII-код обратно в символ и добавляем в результат.
+    }
+
+    return this.direct ? res : res.split("").reverse().join("");
   }
 }
 
