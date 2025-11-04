@@ -19,7 +19,7 @@ function transform(arr) {
   }
 
   const res = [];
-  let skipNext = false;
+  let skipNext = false; //Флаг, чтобы пропустить элемент после --discard-next.
 
   for (let i = 0; i < arr.length; i++) {
     if (skipNext) {
@@ -32,7 +32,7 @@ function transform(arr) {
     if (curr === "--discard-next") {
       if (i + 1 < arr.length) skipNext = true;
     } else if (curr === "--discard-prev") {
-      if (i > 0 && arr[i - 2] !== "--discard-next") res.pop();
+      if (i > 0 && arr[i - 2] !== "--discard-next") res.pop(); // arr[i - 2] - Это защита от ситуации, когда --discard-next удалил элемент, а потом --discard-prev или --double-prev пытается к нему обратиться.
     } else if (curr === "--double-next") {
       if (i + 1 < arr.length) res.push(arr[i + 1]);
     } else if (curr === "--double-prev") {
