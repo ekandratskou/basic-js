@@ -23,7 +23,6 @@ function getSumOfDigits(n) {
     });
     n = res;
   }
-
   return n;
 }
 
