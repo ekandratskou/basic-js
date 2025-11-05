@@ -25,7 +25,7 @@ const chainMaker = {
       throw new Error("You can't remove incorrect link!");
     }
 
-    this.chain.splice(position - 1, 1);
+    this.chain.splice(position - 1, 1); // удаляем последний символ
     return this; // цепочка вызовов
   },
   reverseChain() {

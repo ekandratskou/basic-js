@@ -18,12 +18,12 @@ const { NotImplementedError } = require("../lib");
  */
 
 function getMatrixElementsSum(matrix) {
-  const allowCol = new Array(matrix[0].length).fill(true);
+  const allowCol = new Array(matrix[0].length).fill(true); // заполняем все true
   let sum = 0;
   for (let i = 0; i < matrix.length; i += 1) {
     for (let j = 0; j < matrix[i].length; j += 1) {
       if (matrix[i][j] == 0) {
-        allowCol[j] = false;
+        allowCol[j] = false; // усли ячейка =0 то меняем значение на false
       }
       if (allowCol[j]) {
         sum += matrix[i][j];

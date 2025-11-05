@@ -17,7 +17,7 @@ class DepthCalculator {
     if (!Array.isArray(arr)) return 0;
     let res = 0;
     for (let i of arr) {
-      let deep = this.calculateDepth(i);
+      let deep = this.calculateDepth(i); //для каждого значения вызываем функцию calculateDepth
       if (deep > res) {
         res = deep;
       }

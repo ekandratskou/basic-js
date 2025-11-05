@@ -15,7 +15,7 @@ function deleteDigit(n) {
   const str = String(n);
   let maxNumb = 0;
   for (let i = 0; i < str.length; i += 1) {
-    const newStr = str.slice(0, i) + str.slice(i + 1);
+    const newStr = str.slice(0, i) + str.slice(i + 1); // удаляем цифру на позиции i
     const curNumb = parseInt(newStr, 10);
     if (curNumb > maxNumb) {
       maxNumb = curNumb;

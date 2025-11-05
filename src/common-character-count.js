@@ -19,8 +19,8 @@ function getCommonCharacterCount(s1, s2) {
   for (let i of s1) {
     if (tempS2.includes(i)) {
       count++;
-      const index = tempS2.indexOf(i);
-      tempS2 = tempS2.slice(0, index) + tempS2.slice(index + 1);
+      const index = tempS2.indexOf(i); // возвращает индекс первого вхождения
+      tempS2 = tempS2.slice(0, index) + tempS2.slice(index + 1); // вырезаем что бы учесть символ только один раз при подсчете
     }
   }
   return count;

@@ -20,7 +20,7 @@ function repeater(str, options) {
   str = String(str);
   const repeatTimes = options.repeatTimes || 1;
   const separator = options.separator || "+";
-  const addition = options.hasOwnProperty("addition")
+  const addition = options.hasOwnProperty("addition") //Проверяет, существует ли ключ addition в объекте options позволяет отличить отсутствие параметра от наличия "ложного" значения null, false, 0
     ? String(options.addition)
     : "";
   const additionRepeatTimes = options.additionRepeatTimes || 1;

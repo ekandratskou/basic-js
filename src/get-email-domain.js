@@ -11,7 +11,7 @@ const { NotImplementedError } = require("../lib");
  *
  */
 function getEmailDomain(email) {
-  const regex = /@([^@]+)$/;
+  const regex = /@([^@]+)$/; //Это регулярное выражение ищет последний @ в строке и всё, что идёт после него, до конца строки, не включая другие @
   const match = email.match(regex);
   return match ? match[1].trim() : null;
 }
